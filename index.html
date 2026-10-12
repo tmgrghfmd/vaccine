@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#163b4b">
+<meta name="description" content="依臺灣疾管署115年度兒童、青少年及成人接種時程，輸入年齡與健康狀況，產生個人化候選接種疫苗清單；接種史由醫護人員後續確認。">
+<title>全齡疫苗接種指南｜我的疫苗建議</title>
+<style>
+:root{--navy:#163b4b;--navy2:#214b5c;--teal:#176e71;--mint:#d9efeb;--cream:#f5f6f2;--gold:#d9b877;--text:#213945;--muted:#58717a;--edge:#d5e1e0;--paper:#fff;--shadow:0 12px 34px #1739480d;font-family:system-ui,-apple-system,'Noto Sans TC','Microsoft JhengHei',sans-serif;color:var(--text)}
+*{box-sizing:border-box} html{scroll-behavior:smooth}body{margin:0;background:var(--cream);line-height:1.65} button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #dfa544;outline-offset:2px}a{color:#09696e} .container{max-width:1190px;margin:auto;padding:0 24px}header{background:var(--navy);color:white;position:relative;overflow:hidden}header:after{content:"";position:absolute;width:380px;height:380px;border:1px solid #76a6a4;border-radius:50%;right:-100px;top:-160px;opacity:.25;box-shadow:0 0 0 72px #ffffff08,0 0 0 144px #ffffff08;pointer-events:none}.headerbar{padding:18px 0;border-bottom:1px solid #ffffff30;display:flex;justify-content:space-between;align-items:center;gap:16px;position:relative;z-index:1}.brand{font-size:15px;font-weight:700;letter-spacing:.08em}.brand span{color:#a7d8d0}.version{border:1px solid #ffffff45;color:#e4efef;border-radius:999px;font-size:12px;padding:5px 13px;white-space:nowrap}.hero{padding:48px 0 56px;position:relative;z-index:1;max-width:780px}.eyebrow{color:#b3d9d5;letter-spacing:.18em;font-size:13px;font-weight:700;margin:0 0 10px}h1{font-size:clamp(32px,4.7vw,53px);font-weight:800;letter-spacing:-.035em;line-height:1.27;margin:0 0 18px}h1 em{font-style:normal;color:#a9dbcf}.hero p{color:#e2e9ea;font-size:16px;line-height:1.9;margin:0;max-width:675px}.headnotes{margin-top:24px;display:flex;flex-wrap:wrap;gap:10px}.headnotes span{font-size:12px;border-radius:5px;background:#ffffff17;padding:7px 12px;color:#e9f7f4}.topnotice{font-size:13px;background:#fff8e9;border:1px solid #e8d6ae;color:#6d5430;padding:13px 17px;border-radius:10px;margin:25px 0 19px}.mainlayout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(340px,.92fr);gap:24px;align-items:start;padding-bottom:44px}.panel{background:var(--paper);border:1px solid var(--edge);border-radius:15px;box-shadow:var(--shadow);overflow:hidden}.panelhead{display:flex;align-items:center;gap:12px;padding:23px 24px 18px;border-bottom:1px solid #e6eeec}.step{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--mint);color:#0b6066;font-size:14px;font-weight:800;flex:none}.panelhead h2{margin:0;font-size:19px;letter-spacing:-.025em}.panelhead p{margin:2px 0 0;color:var(--muted);font-size:12px}.sectionbody{padding:22px 24px 26px}.fieldgrid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.field label,.field>label{display:block;font-weight:700;font-size:13px;margin-bottom:6px}.field input,.field select{border:1px solid #cbd8d7;border-radius:9px;min-height:44px;width:100%;padding:8px 12px;background:white;color:#183a44}.field small{display:block;color:var(--muted);font-size:11px;margin-top:5px}.field.full{grid-column:1/-1}.subhead{font-weight:800;font-size:13px;margin:20px 0 10px}.subhead:first-child{margin-top:0}.chipgrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.chip{position:relative;display:flex;align-items:center;min-height:42px;border:1px solid #d3e0df;background:#f9fbfa;border-radius:9px;padding:9px 10px 9px 33px;font-size:12.5px;line-height:1.4;cursor:pointer;transition:background .15s,border-color .15s}.chip input{position:absolute;left:10px;top:12px;width:15px;height:15px;accent-color:var(--teal);margin:0}.chip:has(input:checked){background:#e4f3ef;border-color:#55a59b;color:#145c62;font-weight:700}.helper{color:var(--muted);font-size:12px;margin-top:8px}.historylist{display:grid;grid-template-columns:1fr 1fr;gap:13px}.histitem label{display:block;font-weight:700;font-size:12px;margin-bottom:4px}.histitem select{width:100%;border:1px solid #cadbd8;border-radius:8px;padding:8px;background:white;color:#264751;min-height:40px;font-size:12px}.morehist{margin-top:16px;background:#f4f8f6;border:1px solid var(--edge);border-radius:10px;padding:15px;display:grid;grid-template-columns:1fr 1fr;gap:12px}.morehist label{display:block;font-size:12px;font-weight:700;margin-bottom:5px}.morehist select,.morehist input{width:100%;border:1px solid #cbdad7;border-radius:8px;min-height:39px;background:white;padding:8px;color:var(--text);font-size:12px}.morehist .wide{grid-column:1/-1}.inlinecheck{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.5}.inlinecheck input{margin-top:3px;accent-color:var(--teal)}.actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:19px 24px 25px;background:#f9fbfa;border-top:1px solid var(--edge)}.btn{border-radius:9px;padding:10px 17px;font-weight:800;font-size:14px;border:1px solid #b9d3d0;background:white;color:var(--navy2);min-height:43px}.btn-primary{background:var(--teal);border-color:var(--teal);color:white;flex:1}.btn:disabled{opacity:.45;cursor:not-allowed}.btn:hover:not(:disabled){filter:brightness(.96)}.results{position:sticky;top:18px}.introresult{padding:42px 34px;text-align:center;color:var(--muted)}.intro-icon{width:70px;height:70px;border-radius:21px;display:grid;place-items:center;margin:0 auto 22px;font-size:33px;background:#edf5f1;color:var(--teal)}.introresult h2{margin:0 0 9px;font-size:22px;color:var(--text)}.introresult p{font-size:14px;margin:0 auto;max-width:330px}.result-top{background:var(--navy);color:white;padding:23px 26px}.result-top .kicker{font-size:12px;letter-spacing:.1em;color:#b3d9d5;font-weight:800}.result-top h2{font-size:23px;margin:4px 0 7px;line-height:1.4}.result-top p{font-size:12px;color:#d1e3e2;margin:0}.metricgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:20px}.metric{padding:11px 9px;border-radius:9px;background:#ffffff15;text-align:center}.metric strong{display:block;color:white;font-size:25px;line-height:1.3}.metric span{font-size:11px;color:#dcebea}.result-ops{padding:14px 20px;border-bottom:1px solid var(--edge);display:flex;gap:9px}.result-ops .btn{min-height:36px;font-size:12px;padding:6px 12px;flex:1}.result-ops .btn[disabled]{cursor:not-allowed}.result-content{padding:18px 19px;max-height:calc(100vh - 250px);overflow:auto;scrollbar-color:#afcac4 transparent}.groupheader{font-size:14px;font-weight:800;margin:22px 0 10px;display:flex;align-items:center;gap:7px}.groupheader:first-child{margin-top:0}.count{display:inline-flex;align-items:center;justify-content:center;border-radius:100px;background:#e7ecea;min-width:22px;height:22px;padding:0 5px;font-size:11px;color:#42616b}.vcard{border:1px solid var(--edge);border-radius:11px;padding:15px;margin-bottom:10px;background:#fff}.vcard.urgent{border-left:4px solid #d15343}.vcard.now{border-left:4px solid #15937d}.vcard.check{border-left:4px solid #c49a43}.vcard.consider{border-left:4px solid #879fa5}.vcard.done{border-left:4px solid #a9b8b7}.vtitle{font-size:15px;margin:0 0 9px;font-weight:800;line-height:1.4}.vlabel{font-size:11px;color:#2e6c66;background:#e6f3f0;border-radius:4px;padding:2px 6px;margin-left:5px;font-weight:500;display:inline-block;vertical-align:middle}.vcard p{margin:7px 0 0;font-size:12px}.vcard p b{color:#425e64}.vcard .funding{background:#f4f8f7;border-radius:6px;padding:9px 10px;color:#315d64}.vcard a{font-size:11px;display:inline-block;margin-top:10px;text-decoration:underline;text-underline-offset:2px}.alertlist{margin-bottom:13px}.alert{font-size:12px;padding:12px 13px;margin-bottom:8px;border-radius:8px;background:#fff8ec;border:1px solid #ead9b5;color:#67522c}.footnote{margin:0;padding:18px 23px;color:var(--muted);font-size:11px;background:#f9fbfa;border-top:1px solid var(--edge)}.sources{padding:27px 0 42px;border-top:1px solid #d9e4e2}.sources h2{font-size:18px;margin:0 0 8px}.sources p{margin:4px 0 13px;color:var(--muted);font-size:13px}.sourcegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.sourcegrid a{background:#fff;border:1px solid var(--edge);border-radius:9px;padding:12px 14px;font-size:12px;text-decoration:none;display:flex;justify-content:space-between;gap:9px;align-items:center}.sourcegrid a:hover{border-color:#88bcb2;background:#fafefd}footer{padding:25px 0 33px;background:#eaf1ee;font-size:12px;color:#46616a}footer b{color:var(--navy)}.hidden{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:920px){.mainlayout{grid-template-columns:1fr}.results{position:static}.result-content{max-height:none;overflow:visible}.sourcegrid{grid-template-columns:1fr 1fr}}@media(max-width:590px){.container{padding:0 14px}.hero{padding:34px 0 39px}.hero p{font-size:14px}.mainlayout{gap:15px}.fieldgrid,.chipgrid,.historylist,.morehist{grid-template-columns:1fr}.panelhead{padding:20px 17px 16px}.sectionbody{padding:18px 17px 22px}.morehist .wide{grid-column:auto}.field.full{grid-column:auto}.headnotes{gap:7px}.sourcegrid{grid-template-columns:1fr}.brand{font-size:12px}.version{font-size:10px}.actions{padding:15px}.topnotice{font-size:12px}}
+@media print{body{background:#fff;color:#000}header,.topnotice,#formcolumn,.result-ops,.sources,footer{display:none!important}.container{max-width:none;padding:0}.mainlayout{display:block}.results{position:static}.result-content{max-height:none;overflow:visible}.panel{border:0;box-shadow:none}.result-top{-webkit-print-color-adjust:exact;print-color-adjust:exact}.vcard{break-inside:avoid;page-break-inside:avoid}.vcard a{display:none}.footnote{background:#fff}} 
+
+/* 出生年優先、妊娠欄位與結果核對提示 */
+.pregnancy-title{display:block;font-weight:700;font-size:13px;margin-bottom:6px}
+.field .pregnancy-toggle{display:flex;align-items:center;gap:11px;border:1px solid #cbd8d7;background:#f9fbfa;border-radius:9px;min-height:44px;padding:9px 12px;cursor:pointer;font-size:14px;font-weight:600;margin:0}
+.mode-switch{display:flex;gap:8px;flex-wrap:wrap}.mode-switch label{display:flex;align-items:center;gap:8px;border:1px solid #c8dad6;border-radius:9px;padding:10px 15px;background:#f9fbfa;cursor:pointer;font-size:13px;font-weight:750}.mode-switch label:has(input:checked){background:#dceee9;border-color:#48978d;color:#125c60}.field .mode-switch input[type="radio"]{appearance:auto;accent-color:var(--teal);width:16px;min-width:16px;min-height:16px;height:16px;padding:0;margin:0;flex:none}.mode-switch+small{margin-top:6px}
+.field .pregnancy-toggle input[type="checkbox"]{appearance:auto;width:17px;height:17px;min-height:17px;max-width:17px;flex:none;margin:0;padding:0;accent-color:var(--teal);border:initial;border-radius:3px}
+.field .pregnancy-toggle:has(input:checked){background:#e4f3ef;border-color:#55a59b}
+.field .pregnancy-toggle:has(input:disabled){background:#f1f4f4;border-color:#d6e0df;color:#819093;cursor:not-allowed}
+.field .pregnancy-toggle:has(input:disabled) input{cursor:not-allowed}
+.field input:disabled{background:#f1f4f4;color:#84959a;cursor:not-allowed}
+.age-note{font-size:12px;color:#52727a;background:#edf6f4;padding:10px 13px;border-radius:9px;margin:0}
+.ready-note{padding:15px 16px;background:#edf6f4;border:1px solid #cde5df;border-radius:9px;font-size:13px}
+.ready-note strong{color:#175e62}.ready-note p{margin:4px 0 0;color:#46666b;font-size:12px}
+.clinic-note{padding:13px 15px;margin:0 0 16px;border-radius:9px;background:#eaf4f2;color:#275d61;font-size:12px}
+.cliniccheck{font-size:11px;color:#6a7379;margin-top:10px;padding-top:8px;border-top:1px dashed #d2dddb}
+@media(max-width:590px){.fieldgrid{gap:13px}.pregnancy-field{order:0}.age-note{line-height:1.7}}
+/* 公費類別與旅遊疫苗獨立檢核：顏色代表費用，不代表疫苗優先程度 */
+.funding-legend{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin:11px 0 14px;font-size:11px}
+.funding-pill{display:inline-block;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:800;letter-spacing:0;line-height:1.5}
+.funding-pill.public{color:#115b3b;background:#d9f2e4;border:1px solid #94d7b4}
+.funding-pill.self{color:#245990;background:#e1edfc;border:1px solid #a4c8ed}
+.funding-pill.check{color:#815811;background:#fff0cf;border:1px solid #e6cb88}
+.fee-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:8px 0 3px}
+.fee-row b{font-size:12px;color:#486369}
+.fee-detail{display:block;font-size:11.5px;color:#526a71;margin-top:5px}
+.funding-box{padding:9px 10px;border-radius:8px;background:#f8fafb}
+.travel-options{margin-top:11px}
+.travel-options .fieldgrid{margin-bottom:12px}
+.travel-callout{background:#fff8e9;color:#765827;padding:12px 14px;font-size:12px;border-radius:9px;margin-top:13px}
+.trip-label{font-size:12px;font-weight:800;margin-bottom:7px;display:block}
+.travel-note-result{background:#f0f7f7;border:1px solid #cee2df;padding:12px;border-radius:8px;margin-bottom:14px;font-size:12px}
+.travel-workflow{display:flex;align-items:center;gap:8px;margin:19px 0 9px}.travel-step{width:25px;height:25px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:12px;background:#dcefea;color:#146c69;font-weight:900}.travel-workflow strong{font-size:13px}
+.epidemic-lookup{background:#eef8f6;border:1px solid #c2e1db;border-radius:11px;padding:15px;margin:7px 0 16px}.epidemic-lookup p{font-size:12px;margin:5px 0 0;color:#45666e}.official-links{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0 6px}.official-link{display:flex;justify-content:space-between;align-items:center;gap:7px;padding:10px 12px;border-radius:8px;background:white;border:1px solid #90bcb6;color:#116467;text-decoration:none;font-size:12px;font-weight:800;min-height:47px}.official-link:hover{background:#e1f4ed;border-color:#417d74}.epidemic-check-area{border:1px solid #d4e1de;border-radius:10px;padding:3px 13px 13px}.epidemic-check-area .chipgrid{margin:11px 0}.epidemic-check-area .chip{min-height:40px}.epidemic-check-area .fieldgrid{margin-top:13px}.epidemic-note{font-size:11px;color:#596e76;margin:8px 0 0}.epidemic-subhead{display:block;font-size:12px;font-weight:700;color:#47666e;margin:12px 0 5px}.epidemic-indicator{display:inline-block;padding:2px 8px;border-radius:10px;background:#e1efe9;color:#1d6555;font-size:11px;font-weight:700;margin-top:3px}
+@media(max-width:590px){.official-links{grid-template-columns:1fr}.epidemic-check-area{padding:3px 10px 13px}.epidemic-check-area .chipgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.epidemic-check-area .chip{font-size:11px;padding:8px 6px 8px 29px;min-height:41px}.epidemic-check-area .chip input{left:8px}}
+@media(max-width:590px){.funding-legend{gap:5px}.fee-row{align-items:flex-start}}
+@media print{.funding-pill{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<header>
+ <div class="container">
+  <div class="headerbar"><div class="brand">全齡疫苗接種指南 <span>／ TAIWAN</span></div><span class="version">V6 · 兒童／青少年＋成人 · 2026.10</span></div>
+  <div class="hero"><p class="eyebrow">PERSONALIZED VACCINATION GUIDE</p><h1>每個人的疫苗需求，<br><em>都不太一樣。</em></h1><p>成人只需輸入出生年，兒童與青少年則輸入完整出生日期；依健康狀況與暴露風險，快速列出適合與醫護人員討論的疫苗清單。區分接種建議、公費資格及需要核對的既往接種史。</p><div class="headnotes"><span>✓ 0–18 歲兒少＋19 歲以上成人</span><span>✓ 臺灣疾管署資料</span><span>✓ 不蒐集個資、不上傳資料</span></div></div>
+ </div>
+</header>
+<main class="container">
+ <div class="topnotice" role="note"><strong>使用前請留意：</strong>這是成人與兒少的衛教及門診初步評估工具，不是正式接種處方。兒童必須核對健康手冊與實際出生日期。結果會先列出可能適合的疫苗，不表示一定需要重新施打。既往接種史、正確歲數、公費資格、疫苗禁忌及適用產品，仍需由醫護人員在接種前確認。特殊情況（孕婦、免疫低下、移植、旅遊、動物咬傷）尤其需要個別判斷。</div>
+ <div class="mainlayout">
+ <div id="formcolumn">
+  <form id="patientForm" autocomplete="off" novalidate>
+   <section class="panel"><div class="panelhead"><span class="step">01</span><div><h2>基本資料</h2><p>不需要輸入姓名、身分證字號或電話</p></div></div>
+    <div class="sectionbody fieldgrid">
+     <div class="field full"><span class="subhead" style="display:block;margin:0 0 9px">選擇評估對象</span><div class="mode-switch" role="group" aria-label="評估對象"><label><input type="radio" name="population" value="adult" checked><span>成人（19歲以上）</span></label><label><input type="radio" name="population" value="child"><span>兒童／青少年（未滿19歲）</span></label></div></div>
+     <div class="field" id="adultBirthField"><label for="birthYear">西元出生年 <span aria-hidden="true">*</span></label><input id="birthYear" type="number" min="1906" max="2007" step="1" inputmode="numeric" placeholder="例如：1966" required><small id="agePreview" aria-live="polite">系統會依出生年自動換算年度年齡</small></div>
+     <div class="field hidden" id="childBirthField"><label for="birthDate">出生年月日 <span aria-hidden="true">*</span></label><input id="birthDate" type="date"><small id="childAgePreview" aria-live="polite">兒少依實際生日計算週齡、月齡及年齡</small></div>
+     <div class="field"><label for="sex">性別（選填）</label><select id="sex"><option value="unspecified">不提供</option><option value="female">女性</option><option value="male">男性</option></select><small>部分疫苗建議與育齡婦女身分有關</small></div>
+     <div class="field full hidden" id="schoolStageField"><label for="schoolStage">目前就學階段（選填，影響HPV及流感公費資格）</label><select id="schoolStage"><option value="unknown">尚未提供／不確定</option><option value="preschool">未入學／幼兒園</option><option value="elementary">國小</option><option value="junior7">國中七年級</option><option value="junior8">國中八年級</option><option value="junior9">國中九年級</option><option value="senior">高中／高職</option><option value="vocational">五專一至三年級</option><option value="other">其他（請由醫護確認）</option></select><small>國中男女生HPV公費資格須依實際入學屆別及學籍核定，單憑年齡不夠。</small></div>
+     <div class="field pregnancy-field"><span class="pregnancy-title">妊娠狀況（選填）</span><label class="pregnancy-toggle" id="pregnancyToggle" for="pregnant"><input id="pregnant" type="checkbox"><span>目前懷孕</span></label><small id="pregnancyHint" aria-live="polite">孕婦的 Tdap、RSV 與活性疫苗建議不同</small></div>
+     <div class="field"><label for="weeks">目前懷孕週數</label><input id="weeks" type="number" min="1" max="42" step="1" inputmode="numeric" placeholder="例如：30" disabled><small id="weeksHint" aria-live="polite">勾選「目前懷孕」後即可輸入</small></div>
+     <div class="field full" id="adultAgeNote"><p class="age-note">僅輸入出生年即可初步評估；年齡依「今年年份－出生年」計算。若剛好達到 19、26、45、50、55、60、65、75 歲等門檻，醫護人員須再確認實際生日。</p></div>
+     <div class="field full hidden" id="childAgeNote"><p class="age-note">兒童接種會依「滿幾個月／滿幾歲」判斷；未知接種史時只列出常規時程及應由醫護核對的疫苗，不會直接認定漏打或指示重新接種。適齡公費仍需核對兒童手冊、NIIS、學籍與當年度政策。</p></div>
+    </div>
+   </section>
+   <section class="panel" style="margin-top:17px"><div class="panelhead"><span class="step">02</span><div><h2>慢性疾病與特殊健康狀況</h2><p>可複選；沒有以下情況可不勾選</p></div></div><div class="sectionbody"><div class="chipgrid" id="conditions"></div><p class="helper">提醒：糖尿病、心肺疾病、腎病等與疫苗醫學需求有關，但不代表自動符合肺炎鏈球菌疫苗的公費IPD高風險資格。</p></div></section>
+   <section class="panel" style="margin-top:17px"><div class="panelhead"><span class="step">03</span><div><h2>身分及暴露風險</h2><p>影響公費資格與特殊疫苗建議</p></div></div><div class="sectionbody"><div class="chipgrid" id="risks"></div><p class="helper">出國疫苗仍須依目的地、旅遊活動、既往免疫史做個別判斷。</p></div></section>
+   <section class="panel hidden" id="travelPanel" style="margin-top:17px"><div class="panelhead"><span class="step">04</span><div><h2>國際旅遊疫苗評估</h2><p>勾選「計畫出國」後顯示，選填即可</p></div></div>
+    <div class="sectionbody travel-options">
+      <div class="fieldgrid">
+        <div class="field"><label for="travelDestination">旅遊目的地／國家（選填）</label><input id="travelDestination" type="text" maxlength="120" placeholder="例如：肯亞、印度、沙烏地阿拉伯"><small>僅供醫護核對，系統不會自動查國家疫情</small></div>
+        <div class="field"><label for="travelDate">預計出發日（選填）</label><input id="travelDate" type="date"><small>可提醒是否來得及接種</small></div>
+      </div>
+      <div class="travel-workflow"><span class="travel-step">1</span><strong>開啟疾管署官方頁面查詢目的地疫情</strong></div>
+      <div class="epidemic-lookup">
+        <strong>出發前查詢最新國際旅遊疫情</strong>
+        <p>以下連結會在新分頁開啟；查完後切回這個分頁勾選疾病，之前輸入的資料不會因切換分頁而清除。</p>
+        <div class="official-links">
+          <a class="official-link" href="https://www.cdc.gov.tw/InternationalEpidemicLevel/" target="_blank" rel="noopener noreferrer">查詢旅遊疫情建議等級 <span aria-hidden="true">↗</span></a>
+          <a class="official-link" href="https://www.cdc.gov.tw/InternationalTravel/Index/ZkNLTkRxQ0NyQmc5Rk50dmZZZlI2Zz09" target="_blank" rel="noopener noreferrer">查詢國際旅遊處方箋 <span aria-hidden="true">↗</span></a>
+        </div>
+        <p>疾管署的疫情等級不等於必須接種疫苗；仍要配合國家、地區、停留時間、活動與入境規定判斷。</p>
+      </div>
+      <div class="epidemic-check-area">
+        <div class="travel-workflow"><span class="travel-step">2</span><strong>回到此頁，勾選查到的疫情疾病（可複選）</strong></div>
+        <span class="epidemic-subhead">可能涉及疫苗評估</span>
+        <div class="chipgrid" id="travelVaccineDiseases"></div>
+        <span class="epidemic-subhead">其他疫情（需評估防蚊、飲食、預防性用藥或其他措施）</span>
+        <div class="chipgrid" id="travelOtherDiseases"></div>
+        <div class="fieldgrid">
+          <div class="field"><label for="outbreakCheckDate">本次查詢日期（選填）</label><input id="outbreakCheckDate" type="date"><small>填寫您實際查看官方疫情資訊的日期</small></div>
+          <div class="field"><label for="otherEpidemic">其他疫情疾病（選填）</label><input id="otherEpidemic" type="text" maxlength="120" placeholder="例如：白喉、霍亂以外的疾病"><small>未列於上方的疾病可記錄，需醫護另行判斷</small></div>
+        </div>
+        <p class="epidemic-note">此處為<b>手動紀錄</b>，網站不會自行讀取或驗證疾管署資料；未勾選不代表當地沒有疫情。防蚊與預防性用藥也會出現在提醒中。</p>
+      </div>
+      <div class="travel-workflow"><span class="travel-step">3</span><strong>補充旅遊行程與入境接種要求</strong></div>
+      <span class="trip-label">旅遊風險／行程（可複選；不確定可不選）</span>
+      <div id="travelRisks" class="chipgrid"></div>
+      <div class="travel-callout">四種旅遊疫苗會在結果中分別列出，<strong>不是全部都必須接種</strong>。風險地區及入境法規需以疾管署「國際旅遊處方箋」與目的國最新公告為準。</div>
+    </div>
+   </section>
+   <section class="panel" style="margin-top:17px"><div class="panelhead"><span class="step">05</span><div><h2>產生個人化建議</h2><p>不需要先回想以前打過哪些疫苗</p></div></div>
+    <div class="sectionbody"><div class="ready-note"><strong>接種紀錄交由醫護人員確認</strong><p>系統先依出生年月（成人依出生年）、疾病與風險條件列出可能適合的疫苗。診間再查詢接種紀錄、確認施打日期和劑次，決定是否真的需要接種。</p></div></div>
+    <div class="actions"><button class="btn btn-primary" type="submit">查看適合我的疫苗 →</button><button class="btn" type="button" id="demoBtn">試用示範</button><button class="btn" type="reset">清除</button></div>
+   </section>
+  </form>
+ </div>
+ <div class="panel results" id="results" aria-live="polite"><div class="introresult"><div class="intro-icon">✚</div><h2>適合您的疫苗會顯示在這裡</h2><p>選擇成人或兒少，輸入出生資料並勾選健康狀況後，點選「查看適合我的疫苗」，即可看到依個人條件整理的討論清單。</p></div></div>
+ </div>
+ <section class="sources"><h2>參考依據及政策更新</h2><p>本網站使用疾管署115年9月兒童、青少年及成人接種時程表、115年度公費流感及115–116年度COVID-19政策，以及成人肺炎鏈球菌PCV20／PCV21最新公告；建議最後查核日：2026-10-12。</p><div id="sources" class="sourcegrid"></div></section>
+</main>
+<footer><div class="container"><b>全齡疫苗接種指南</b> · 獨立靜態衛教網站範本。所有輸入與運算僅在您的瀏覽器執行，不會傳送到伺服器，也不儲存接種資料。網站非疾管署官方網站，亦不取代接種醫師評估。</div></footer>
+<script src="./rules.js"></script>
+<script src="./child_rules.js"></script>
+<script>
+(()=>{'use strict';
+const R=window.VaccineRules, C=window.ChildVaccineRules, $=id=>document.getElementById(id);
+const badges={urgent:'請立即就醫',now:'優先與醫護確認',check:'需先評估／暫緩',consider:'可評估接種',done:'已完成'};
+const order=['urgent','now','check','consider','done'];
+const esc=s=>String(s??'').replace(/[&<>"']/g,a=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[a]));
+function checkboxes(parent,data,type){Object.entries(data).forEach(([id,label])=>{const chip=document.createElement('label');chip.className='chip';const cb=document.createElement('input');cb.type='checkbox';cb.name=type;cb.value=id;chip.append(cb,document.createTextNode(label));parent.appendChild(chip);});}
+checkboxes($('conditions'),R.CONDITION_LABELS,'condition');checkboxes($('risks'),R.RISK_LABELS,'risk');
+checkboxes($('travelRisks'),R.TRAVEL_RISK_LABELS,'travelRisk');
+const vxDiseaseIds=['yellow','typhoid','polio','mening','measles','hepatitisA','japaneseEncephalitis','mpox','influenza'];
+checkboxes($('travelVaccineDiseases'),Object.fromEntries(Object.entries(R.TRAVEL_DISEASE_LABELS).filter(([id])=>vxDiseaseIds.includes(id))),'travelDisease');
+checkboxes($('travelOtherDiseases'),Object.fromEntries(Object.entries(R.TRAVEL_DISEASE_LABELS).filter(([id])=>!vxDiseaseIds.includes(id))),'travelDisease');
+function updateTravelPanel(){const active=!!document.querySelector('input[name=risk][value=travel]:checked');$('travelPanel').classList.toggle('hidden',!active);}
+document.querySelector('input[name=risk][value=travel]').addEventListener('change',updateTravelPanel);
+Object.entries({...R.SOURCES,...C.SOURCES}).forEach(([id,s])=>{const link=document.createElement('a');link.href=s.url;link.target='_blank';link.rel='noopener noreferrer';link.textContent=s.label+' ↗';$('sources').appendChild(link);});
+function getInput(){
+ const by=$('birthYear').value.trim(), birthYear=by===''?null:Number(by);
+ return {birthYear,population:document.querySelector('input[name=population]:checked').value,birthDate:$('birthDate').value,schoolStage:$('schoolStage').value, sex:$('sex').value,pregnant:$('sex').value!=='male' && $('pregnant').checked,weeks:$('sex').value==='male'?'':$('weeks').value,
+ conditions:Array.from(document.querySelectorAll('input[name=condition]:checked')).map(x=>x.value),
+ risks:Array.from(document.querySelectorAll('input[name=risk]:checked')).map(x=>x.value),
+ travelRisks:Array.from(document.querySelectorAll('input[name=travelRisk]:checked')).map(x=>x.value),
+ travelDestination:$('travelDestination').value,travelDate:$('travelDate').value,
+ travelDiseases:Array.from(document.querySelectorAll('input[name=travelDisease]:checked')).map(x=>x.value),
+ outbreakCheckDate:$('outbreakCheckDate').value,otherEpidemic:$('otherEpidemic').value,history:{}};
+}
+function updateAgePreview(){
+ const str=$('birthYear').value.trim(), y=Number(str), year=new Date().getFullYear();
+ $('birthYear').max=year-19; $('birthYear').min=year-120;
+ $('agePreview').textContent=str!=='' && Number.isInteger(y) && y>=year-120 && y<=year-19 ? `今年將滿 ${year-y} 歲（依西元出生年換算）` : '系統會依出生年自動換算年度年齡';
+}
+function childDOBPreview(){const date=$('birthDate').value;if(!date){$('childAgePreview').textContent='請輸入完整西元年月日，以計算週齡／月齡。';return;}const result=C.evaluate({birthDate:date});$('childAgePreview').textContent=result.error?result.error:`目前約 ${result.ageLabel}（供判斷時程）`;}
+function switchPopulation(){const child=document.querySelector('input[name=population]:checked').value==='child';$('adultBirthField').classList.toggle('hidden',child);$('childBirthField').classList.toggle('hidden',!child);$('schoolStageField').classList.toggle('hidden',!child);$('adultAgeNote').classList.toggle('hidden',child);$('childAgeNote').classList.toggle('hidden',!child);$('birthYear').required=!child;$('birthDate').required=child;
+ const adultOnlyConditions=['dementia'];const adultOnlyRisks=['healthcare','facilityStaff','childcare','infantCare','animals','smoker','alcohol','rabiesOccup'];
+ document.querySelectorAll('input[name=condition],input[name=risk]').forEach(el=>{
+   const excluded=child&&(el.name==='condition'?adultOnlyConditions:adultOnlyRisks).includes(el.value);
+   if(excluded)el.checked=false;
+   el.disabled=excluded;
+   el.closest('.chip').classList.toggle('hidden',excluded);
+ });
+ updateAgePreview();childDOBPreview();syncPregnancyFields();}
+function render(result){if(result.error){$('results').innerHTML=`<div class="introresult"><h2>無法產生結果</h2><p role="alert">${esc(result.error)}</p></div>`;return;}
+ const summary=result.population==='child'?`出生日期 ${esc(result.birthDate)}（${esc(result.ageLabel)}），依月齡／年齡與風險列出 ${result.recs.length} 項疫苗或時程核對項目。`:`依西元 ${esc(result.birthYear)} 年出生（今年將滿 ${esc(result.age)} 歲）與健康狀況，初步篩選 ${result.recs.length} 項疫苗。`;
+ const metric=[['urgent','緊急處置'],['now','優先評估'],['consider','可評估']].map(([k,txt])=>`<div class="metric"><strong>${result.counts[k]}</strong><span>${txt}</span></div>`).join('');
+ let body='<div class="clinic-note"><strong>提醒：</strong>下列是符合條件時可考慮的疫苗，不代表每一項都需要重新施打。實際施打前，請由醫護人員確認 NIIS／疫苗手冊接種史、年齡、禁忌症及公費資格。</div>';
+ body+='<div class="funding-legend"><strong>費用標示：</strong><span class="funding-pill public">可能符合公費</span><span class="funding-pill self">自費</span><span class="funding-pill check">公費資格待確認</span></div>';
+ if(result.travelDestination||result.travelDate||result.travelRiskLabels.length||result.travelDiseaseLabels.length||result.otherEpidemic){body+=`<div class="travel-note-result"><strong>旅遊資訊（疫情疾病由使用者手動勾選，未自動驗證）：</strong>${result.travelDestination?`<div>目的地：${esc(result.travelDestination)}</div>`:''}${result.travelDate?`<div>出發日期：${esc(result.travelDate)}</div>`:''}${result.travelDiseaseLabels.length?`<div><span class="epidemic-indicator">自行查詢後勾選</span> 疫情疾病：${esc(result.travelDiseaseLabels.join('、'))}</div>`:''}${result.outbreakCheckDate?`<div>自行填寫的查詢日期：${esc(result.outbreakCheckDate)}</div>`:''}${result.otherEpidemic?`<div>其他疫情：${esc(result.otherEpidemic)}</div>`:''}${result.travelRiskLabels.length?`<div>行程風險：${esc(result.travelRiskLabels.join('、'))}</div>`:''}<div><a href="https://www.cdc.gov.tw/InternationalEpidemicLevel/" target="_blank" rel="noopener noreferrer">重新查詢最新官方疫情 ↗</a></div></div>`;}
+ if(result.alerts.length)body+=`<div class="alertlist">${result.alerts.map(t=>`<div class="alert">${esc(t)}</div>`).join('')}</div>`;
+ for(const group of order){const list=result.recs.filter(r=>r.group===group);if(!list.length)continue;
+ body+=`<h3 class="groupheader">${esc(badges[group])} <span class="count">${list.length}</span></h3>`;
+ for(const v of list){const src=(result.sources||R.SOURCES)[v.source]||R.SOURCES[v.source];body+=`<article class="vcard ${esc(v.group)}"><h4 class="vtitle">${esc(v.title)}<span class="vlabel">${esc(badges[v.group])}</span></h4><p><b>建議劑次：</b>${esc(v.dose)}</p><p><b>判斷原因：</b>${esc(v.why)}</p><div class="funding-box"><div class="fee-row"><b>接種費用：</b><span class="funding-pill ${esc(v.fundingType)}">${esc(v.fundingLabel)}</span></div><span class="fee-detail">${esc(v.funding)}</span></div><p><b>下一步：</b>${esc(v.action)}</p>${v.caution?`<p><b>特別注意：</b>${esc(v.caution)}</p>`:''}<div class="cliniccheck">醫護核對：□ 已接種　□ 未完成接種　□ 接種紀錄待查</div><a href="${esc(src?.url||"#")}" target="_blank" rel="noopener noreferrer">查看疾管署資料 ↗</a></article>`;}
+ }
+ $('results').innerHTML=`<div class="result-top"><div class="kicker">個人化評估結果</div><h2>依條件可考慮的疫苗</h2><p>${summary}<br>生成日期 ${esc(result.asOf)} · ${esc(result.policyVersion)}</p><div class="metricgrid">${metric}</div></div><div class="result-ops"><button type="button" id="copyBtn" class="btn">複製文字摘要</button><button type="button" id="printBtn" class="btn">列印／存PDF</button></div><div class="result-content">${body}</div><p class="footnote">本工具僅供衛教與就醫前整理。兒童需核對健康手冊與NIIS；公費及疫苗缺失不能僅憑問卷確診；應核對NIIS紀錄、疫苗仿單、禁忌症與主管機關最新版公告。不輸入真實姓名即可使用。</p>`;
+ $('printBtn').onclick=()=>window.print();$('copyBtn').onclick=()=>copyText(result);
+ if(window.innerWidth<921)$('results').scrollIntoView({behavior:'smooth',block:'start'});
+ }
+ function textReport(result){let t=`${result.population==='child'?'兒童／青少年':'成人'}疫苗個人化建議（民眾衛教初步評估）\n生成日期：${result.asOf}\n${result.population==='child'?`出生日期：${result.birthDate}（${result.ageLabel}）`:`出生年：${result.birthYear}年（今年將滿${result.age}歲）`}\n接種史：尚未核對，須由醫護人員確認\n慢性病：${result.conditions.join('、')||'未勾選'}\n身分／暴露風險：${result.risks.join('、')||'未勾選'}\n旅遊目的地：${result.travelDestination||'未填'}\n旅遊日期：${result.travelDate||'未填'}\n旅遊風險：${result.travelRiskLabels.join('、')||'未勾選'}\n自行勾選的疫情疾病（非自動查核）：${result.travelDiseaseLabels.join('、')||'未勾選'}\n查詢日期（自行填寫）：${result.outbreakCheckDate||'未填'}\n其他疫情：${result.otherEpidemic||'未填'}\n\n`;
+ for(const group of order){const items=result.recs.filter(x=>x.group===group);if(!items.length)continue;t+=`【${badges[group]}】\n`;items.forEach(v=>{t+=`■ ${v.title}\n建議劑次：${v.dose}\n原因：${v.why}\n費用分類：${v.fundingLabel}\n公費說明：${v.funding}\n下一步：${v.action}${v.caution?'\n注意：'+v.caution:''}\n醫護核對：□已接種 □未完成接種 □待查證\n來源：${(result.sources||R.SOURCES)[v.source].url}\n\n`;});}
+ if(result.alerts.length)t+='特別提醒：\n'+result.alerts.map(x=>'・'+x).join('\n')+'\n\n';return t+'※ 本結果不可取代接種紀錄查核、最新政策與臨床評估。';}
+ let lastResult=null;
+ async function copyText(result){const txt=textReport(result),btn=$('copyBtn');try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(txt);else{const t=document.createElement('textarea');t.value=txt;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();if(!document.execCommand('copy'))throw new Error('copy failed');t.remove();}btn.textContent='已複製';setTimeout(()=>{if(btn.isConnected)btn.textContent='複製文字摘要';},1800);}catch(e){btn.textContent='複製失敗，請改用列印';}}
+ $('patientForm').addEventListener('submit',e=>{
+  e.preventDefault();const p=getInput(), year=new Date().getFullYear();
+  if(p.population==='adult' && (!Number.isInteger(p.birthYear)||p.birthYear<year-120||p.birthYear>year-19)){
+    $('birthYear').focus();$('birthYear').setCustomValidity(`請輸入${year-120}至${year-19}的西元出生年`);$('birthYear').reportValidity();return;
+  }
+  if(p.population==='child'){
+    const x=C.evaluate(p);
+    if(x.error){$('birthDate').setCustomValidity(x.error);$('birthDate').focus();$('birthDate').reportValidity();return;}
+  }
+  if(p.pregnant && $('weeks').value.trim()!=='' && (!Number.isInteger(Number(p.weeks))||Number(p.weeks)<1||Number(p.weeks)>42)){
+    $('weeks').focus();$('weeks').setCustomValidity('請輸入1至42的整數懷孕週數');$('weeks').reportValidity();return;
+  }
+  $('birthYear').setCustomValidity('');$('birthDate').setCustomValidity('');$('weeks').setCustomValidity('');lastResult=p.population==='child'?C.evaluate(p):R.evaluate(p);render(lastResult);
+ });
+ $('birthYear').addEventListener('input',()=>{$('birthYear').setCustomValidity('');updateAgePreview();});
+ $('birthDate').addEventListener('input',()=>{$('birthDate').setCustomValidity('');childDOBPreview();});
+ document.querySelectorAll('input[name=population]').forEach(el=>el.addEventListener('change',switchPopulation));
+ $('weeks').addEventListener('input',()=> $('weeks').setCustomValidity(''));
+ updateAgePreview();
+ // 男性選項會停用妊娠輸入；切換後需同步清除舊值，避免殘留在接種規則中。
+ function syncPregnancyFields(){
+  const child=document.querySelector('input[name=population]:checked').value==='child';
+  const dob=$('birthDate').value, validAge=dob?C.evaluate({birthDate:dob}):null;
+  const youthPregnancy=child && !!(validAge&&!validAge.error&&validAge.age>=11);
+  const male=$('sex').value==='male'||(child&&!youthPregnancy), pregnant=$('pregnant'), weeks=$('weeks');
+  if(male){pregnant.checked=false;weeks.value='';weeks.setCustomValidity('');}
+  pregnant.disabled=male;
+  if(!pregnant.checked){weeks.value='';weeks.setCustomValidity('');}
+  weeks.disabled=male||!pregnant.checked;
+  $('pregnancyToggle').setAttribute('aria-disabled',String(male));
+  $('pregnancyHint').textContent=child&&!youthPregnancy?'兒童模式僅11歲以上青少年可填寫懷孕狀況。':male?'已選擇男性，懷孕選項已停用。':'孕婦的 Tdap、RSV 與活性疫苗建議不同';
+  $('weeksHint').textContent=male?'選擇男性時不需填寫。':pregnant.checked?'請輸入目前懷孕週數（1–42週）':'勾選「目前懷孕」後即可輸入';
+ }
+ $('sex').addEventListener('change',syncPregnancyFields);
+ $('birthDate').addEventListener('change',syncPregnancyFields);
+ $('pregnant').addEventListener('change',syncPregnancyFields);
+ switchPopulation();
+ $('patientForm').addEventListener('reset',()=>{setTimeout(()=>{switchPopulation();updateTravelPanel();$('results').innerHTML='<div class="introresult"><div class="intro-icon">✚</div><h2>適合您的疫苗會顯示在這裡</h2><p>選擇成人或兒少，輸入出生資料並勾選健康狀況後，點選「查看適合我的疫苗」，即可看到依個人條件整理的討論清單。</p></div>';lastResult=null;},0);});
+ $('demoBtn').onclick=()=>{$('patientForm').reset();setTimeout(()=>{
+ $('birthYear').value=new Date().getFullYear()-68;document.querySelector('input[name=population][value=adult]').checked=true;$('sex').value='female';syncPregnancyFields();
+ document.querySelector('input[name=condition][value=diabetes]').checked=true;
+ document.querySelector('input[name=condition][value=heart]').checked=true;
+ updateAgePreview();$('patientForm').requestSubmit();},20);};
+})();
+</script>
+</body>
+</html>
